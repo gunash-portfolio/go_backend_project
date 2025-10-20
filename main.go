@@ -6,10 +6,15 @@ import (
 	"net/http"
 
 
+	"github.com/gunash-portfolio/go-backend-project/database"
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	godotenv.Load()
+
+	database.Connect()
 
 	r :=mux.NewRouter()
 
