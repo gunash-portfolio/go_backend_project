@@ -1,0 +1,155 @@
+:root {
+  --ink: #152028;
+  --muted: #5a6b76;
+  --paper: #f3f6f4;
+  --panel: rgba(255, 255, 255, 0.72);
+  --accent: #0f766e;
+  --accent-deep: #0b5a54;
+  --line: rgba(21, 32, 40, 0.12);
+  --shadow: 0 18px 50px rgba(21, 32, 40, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(900px 520px at 12% -10%, rgba(15, 118, 110, 0.22), transparent 60%),
+    radial-gradient(700px 480px at 100% 0%, rgba(180, 120, 60, 0.16), transparent 55%),
+    linear-gradient(160deg, #eef3f0 0%, #f7f3eb 48%, #e8eef2 100%);
+}
+
+.shell {
+  width: min(560px, 100%);
+  animation: rise 0.7s ease both;
+}
+
+.brand {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+  color: var(--accent-deep);
+}
+
+.actions {
+  margin-bottom: 1rem;
+}
+
+button {
+  appearance: none;
+  border: 0;
+  border-radius: 0.65rem;
+  padding: 0.85rem 1.2rem;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.28);
+}
+
+button:hover {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.panel {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  min-height: 5.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+  animation: fade 0.8s ease 0.15s both;
+}
+
+.panel.error {
+  color: #9f1239;
+  border-color: rgba(159, 18, 57, 0.25);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  body {
+    place-items: start center;
+    padding-top: 3rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

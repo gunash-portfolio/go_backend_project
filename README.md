@@ -21,21 +21,24 @@ This is a simple Go web server project using [Gorilla Mux](https://github.com/go
 
 ### Running the Server
 
+Make sure Postgres is available (see `docker-compose.yml`) and a `.env` file sets `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME`.
+
 ```bash
 go run main.go
 ```
 
-The server will start on `http://localhost:8080`
+The server will start on `http://localhost:8080` and serve the static frontend from `static/`.
 
 ## Available Endpoints
 
-- `GET /` - Home page
-- `GET /api/hello` - Hello endpoint
+- `GET /` - Basic frontend UI
+- `GET /api/hello` - JSON hello endpoint (`{"message":"Hello from Mux"}`)
 
 ## Tech Stack
 
 - Go 1.23.2
 - Gorilla Mux v1.8.1
+- Static HTML/CSS/JS frontend
 
 
 
